@@ -12,7 +12,7 @@ Use this shared skill for all report charts. Keep chart rules in this repository
 1. Read [common-rules.md](references/common-rules.md).
 2. Choose exactly one focused reference: bar, line, histogram, stacked bar, map, or heatmap.
 3. Preserve the source, query date, snapshot date, denominator, geographic scope, unit, and uncertainty in the figure.
-4. For a map or heatmap, load a checked-in standard-code mapping and an offline boundary resource from [resources/](resources/README.md). Run `node scripts/validate-resources.mjs` when either resource changes.
+4. For a map or heatmap, resolve the target province through the checked-in region registry, then load its standard-code mapping and offline boundary resource from [resources/](resources/README.md). Run `node scripts/validate-resources.mjs` when a mapping, manifest, registry entry, or boundary resource changes.
 5. Generate a self-contained HTML/SVG figure. Do not use remote tiles, external scripts, screenshots, or invented boundaries.
 6. Run a structural check for closed HTML/SVG, accessible `title`/`desc`, and the required `data-chart-skill` marker.
 
@@ -25,7 +25,7 @@ Use this shared skill for all report charts. Keep chart rules in this repository
 - [stacked-bar-chart.md](references/stacked-bar-chart.md)
 - [map-chart.md](references/map-chart.md)
 - [heatmap-chart.md](references/heatmap-chart.md): city or region intensity maps without bubbles.
-- [resources/README.md](resources/README.md): checked-in administrative code mappings and offline boundary resources.
+- [resources/README.md](resources/README.md): checked-in region registry, manifests, administrative code mappings, and offline boundary resources.
 
 ## Boundaries
 

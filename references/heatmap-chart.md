@@ -17,10 +17,11 @@ Use for city or region intensity distributions when standard geographic codes an
 
 ## Offline boundary resources
 
-- Use the bundled resources in `resources/administrative-codes/` and `resources/boundaries/`; the current checked-in set covers Guangdong province (`provinceCode=440000`) at city level.
+- Resolve the target province in `resources/regions/registry.json`, then load that entry's manifest under `resources/regions/cn/<provinceCode>/`. The manifest is the resource-package contract: it names the city-code mapping, offline boundary file, standard code system, scope, source, SHA-256, and license status. The currently checked-in city-level packages cover Guangdong (`provinceCode=440000`) and Zhejiang (`provinceCode=330000`); an unregistered province has no valid map resource.
+- Use only the bundled resources in `resources/administrative-codes/` and `resources/boundaries/`. Never download a boundary at report time or let the model synthesize one. A registry match is necessary but not sufficient: the query scope and the manifest scope must have the same province code.
 - The city-code mapping is the join contract: `cityNameToCode[queryRow.city]` produces a six-digit string such as `440100`, then that value must match `feature.properties.adcode` in the offline GeoJSON. Do not join by fuzzy text, coordinates, or model-generated geometry.
 - Every colored path must have a matching standard code and boundary feature. If a returned city name is missing or ambiguous in the mapping, the map is unassessed and the report must show the failure reason.
-- Run `node scripts/validate-resources.mjs` after changing a mapping or boundary resource.
+- Run `node scripts/validate-resources.mjs` after changing a mapping, manifest, registry entry, or boundary resource. Use `--province=浙江省` (or a six-digit province code) to validate one package while iterating.
 
 ## Data contract
 
