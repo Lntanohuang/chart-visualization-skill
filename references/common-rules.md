@@ -10,3 +10,4 @@
 - For maps and heatmaps, missing or out-of-coverage regions use a neutral fill; a real zero may use the lowest data color only when the legend labels it as zero. Never imply zero when the region was not covered.
 - Keep labels readable, use color with sufficient contrast, and provide a text fallback or ranked list for the same key findings.
 - If a chart protocol limits data points, show the top-ranked points and aggregate the remainder as “其他”; state that choice in the caption.
+- Do not use 100% stacked (share-normalized) bar charts. For composition or proportion comparisons across groups, use grouped bars sharing one percentage axis; every value label must stay readable, without overlap or omission.

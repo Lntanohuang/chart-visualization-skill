@@ -30,3 +30,5 @@ Use this shared skill for all report charts. Keep chart rules in this repository
 ## Boundaries
 
 A heatmap is valid only when every colored region has a standard geographic code and a matching boundary dataset. A missing query row must stay missing and use a neutral fill; it must not be changed into a zero count. If the user location is outside China, omit the China city-distribution heatmap. If the location is unknown, do not infer it; report the missing scope. A report may use a ranked bar chart when no valid boundary data exists.
+
+Do not generate 100% stacked (share-normalized) bar charts. Compare composition or proportions across groups with grouped bars on one shared percentage axis, and keep every value label readable without overlap or omission.

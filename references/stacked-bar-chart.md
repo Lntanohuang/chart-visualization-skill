@@ -4,9 +4,14 @@
 
 先读取 [通用图表规则](common-rules.md)：统一处理来源、筛选、快照、分母和小样本说明。
 
-输出要求：
+选择限制：
+
+- **禁止 100% 归一化堆叠柱**：任何“各段之和为 100%”的占比堆叠图不得生成。多群组构成或占比对比一律改用分组柱状图（读取 [bar-chart.md](bar-chart.md)：同档各群组柱并排、共享一条占比坐标轴、每柱标注数值）。
+- 绝对数堆叠柱仅在单一群组、段数少且每段数值标签可读时允许；薄段标签外置或用引导线，不得省略数值或让标签重叠。
+
+输出要求（仅用于允许的绝对数堆叠）：
 
 - 使用 `<figure data-chart-skill="stacked-bar-chart" data-chart-id="CH1">`。
 - 每根柱子表示一个群组，每个堆叠段表示一个构成项；所有段的单位必须一致。
-- 使用内联 `<svg viewBox="0 0 760 360" role="img" aria-labelledby="CH1-title CH1-desc">`，提供图例、百分比标签和比例分母定义。
+- 使用内联 `<svg viewBox="0 0 760 360" role="img" aria-labelledby="CH1-title CH1-desc">`，提供图例、数值标签和分母口径说明。
 - 包含 `<figcaption>`、`<title>`、`<desc>`、来源和快照日期；不要用 Markdown 表格代替。
